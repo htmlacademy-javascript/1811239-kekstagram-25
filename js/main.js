@@ -1,12 +1,12 @@
-function multiplyByNineFifths(number) {
-  return number * (9/5);
-};
+// function multiplyByNineFifths(number) {
+//   return number * (9/5);
+// };
 
-function getFahrenheit(celsius) {
-  return multiplyByNineFifths(celsius) + 32;
-};
+// function getFahrenheit(celsius) {
+//   return multiplyByNineFifths(celsius) + 32;
+// };
 
-getFahrenheit(15);
+// getFahrenheit(15);
 
 // 1)  Функция, возвращающая случайное целое число из переданного диапазона включительно.
 
