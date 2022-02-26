@@ -7,6 +7,6 @@ function checkStringLength(str, len) {
 }
 
 function getRandomNumber(min, max) {
-  return Math.random() * (max - min) + min
+  return Math.random() * (max - min) + min;
 }
 getRandomNumber(5, 15);
