@@ -5,6 +5,7 @@ function checkStringLength(str, len) {
     return false;
   }
 }
+checkStringLength()
 
 function getRandomNumber(min, max) {
   return Math.random() * (max - min) + min;
