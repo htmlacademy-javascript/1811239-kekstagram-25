@@ -5,6 +5,7 @@ function checkStringLength(str, len) {
     return false;
   }
 }
+
 checkStringLength('12', 1);
 
 function getRandomNumber(min, max) {
@@ -36,3 +37,4 @@ for (let i = 0; i < 25; i++) {
 }
 
 console.log(result);
+
