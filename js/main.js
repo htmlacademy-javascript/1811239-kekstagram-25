@@ -1,4 +1,3 @@
-/* eslint-disable */
 function checkStringLength(str, len) {
   if (str.length <= len) {
     return true;
