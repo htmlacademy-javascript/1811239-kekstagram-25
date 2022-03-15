@@ -6,6 +6,7 @@ const appellation = ['Анна', 'Андрей', 'Денис', 'Игорь', 'А
 
 const result = [];
 
+import {getRandomNumber} from '<main.js>';
 
 const getRandomArrayElement = (elements) => elements[getRandomNumber(0, elements.length - 1)];
 
@@ -22,4 +23,6 @@ for (let i = 0; i < 25; i++) {
   result.push(generateRandomPost());
 }
 // console.info(result);
-export {getRandomArrayElement};
+// export { getRandomArrayElement };
+// export {'main.js'};
+
