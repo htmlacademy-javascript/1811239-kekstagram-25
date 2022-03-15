@@ -13,4 +13,7 @@ function getRandomNumber(min, max) {
 }
 getRandomNumber(5, 15);
 
+
+import './setup.js';
 import './data.js';
+

@@ -22,3 +22,4 @@ for (let i = 0; i < 25; i++) {
   result.push(generateRandomPost());
 }
 // console.info(result);
+export {getRandomArrayElement};
