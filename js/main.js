@@ -16,5 +16,6 @@ getRandomNumber(5, 15);
 
 import './util';
 import './data.js';
+import 'paintpic.js';
 
 export {getRandomNumber};
