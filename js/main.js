@@ -13,9 +13,8 @@ function getRandomNumber(min, max) {
 }
 getRandomNumber(5, 15);
 
-
-import './util';
+import './util.js';
 import './data.js';
-import 'paintpic.js';
-
+import './paintpic.js';
+import './popup.js';
 export {getRandomNumber};
