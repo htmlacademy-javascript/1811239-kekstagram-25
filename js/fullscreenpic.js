@@ -1,17 +1,17 @@
-function openBigPic(Newphoto) {
-  // console.log(Newphoto);
-}
-export { openBigPic };
+// function openBigPic(Newphoto) {
+//   console.log(Newphoto);
+// }
+// export { openBigPic };
 
-const imgBigPicture = document.querySelector('.big-picture');
-imgBigPicture.classList.remove('hidden');
-// imgBigPicture.querySelector('.big-picture').classList.remove('hidden');
+// const imgBigPicture = document.querySelector('.big-picture');
+// imgBigPicture.classList.remove('hidden');
+// // imgBigPicture.querySelector('.big-picture').classList.remove('hidden');
 
-const foundLikes =document.querySelector('likes-count');
-foundLikes.textContent = Newphoto.foundLikes;
+// const foundLikes =document.querySelector('likes-count');
+// foundLikes.textContent = Newphoto.foundLikes;
 
-const foundComments =document.querySelector('social__comment');
-foundComments.textContent = Newphoto.foundComments;
+// const foundComments =document.querySelector('social__comment');
+// foundComments.textContent = Newphoto.foundComments;
 
 // similarWizards.forEach((wizard) => {
 //   const wizardElement = similarWizardTemplate.cloneNode(true);
