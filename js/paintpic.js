@@ -1,4 +1,5 @@
 import { generateRandomPhoto } from './data.js';
+import { openBigPic } from './fullscreenpic.js';
 
 const templateFragment = document.querySelector('#picture').content;
 const picture = templateFragment.querySelector('.picture');
@@ -15,6 +16,9 @@ for (let i = 0; i < 6; i++) {
   Foundcomments.textContent = Newphoto.comments.length;
   Foundlike.textContent = Newphoto.likes;
   // element.classList.add(`big-picture/${i + 1}`);
+  element.addEventListener('click', () => {
+    openBigPic(Newphoto);
+  });
   fragment.appendChild(element);
 }
 document.querySelector('.pictures').appendChild(fragment);

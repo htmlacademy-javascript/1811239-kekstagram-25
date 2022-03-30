@@ -17,4 +17,5 @@ import './util.js';
 import './data.js';
 import './paintpic.js';
 import './popup.js';
+import './fullscreenpic.js';
 export {getRandomNumber};
