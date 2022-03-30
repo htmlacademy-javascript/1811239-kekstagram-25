@@ -1,26 +1,35 @@
-// function openBigPic(Newphoto) {
-//   console.log(Newphoto);
-// }
-// export { openBigPic };
+function openBigPic(Newphoto) {
+  const imgBigPicture = document.querySelector('.big-picture');
+  imgBigPicture.classList.remove('hidden');
+  document.querySelector('.big-picture__img').children[0].src = Newphoto.url;
 
-// const imgBigPicture = document.querySelector('.big-picture');
-// imgBigPicture.classList.remove('hidden');
-// // imgBigPicture.querySelector('.big-picture').classList.remove('hidden');
+  const foundLikes = document.querySelector('.likes-count');
+  foundLikes.textContent = Newphoto.likes;
 
-// const foundLikes =document.querySelector('likes-count');
-// foundLikes.textContent = Newphoto.foundLikes;
+  const foundDescription = document.querySelector('.social__caption');
+  foundDescription.textContent = Newphoto.description;
 
-// const foundComments =document.querySelector('social__comment');
-// foundComments.textContent = Newphoto.foundComments;
+  const comments = [...document.querySelectorAll('.social__comment')];
+  const Onecomment = document.querySelector('.social__comment');
+  comments.forEach((comment) => {
+    comment.remove();
+  });
+  const fragment = document.createDocumentFragment();
+  Newphoto.comments.forEach((item) => {
+    const element = Onecomment.cloneNode(true);
+    const Oneavatar = element.querySelector('.social__picture');
+    const CommentsText = element.querySelector('.social__text');
+    Oneavatar.src = item.avatar;
+    CommentsText.textContent = item.message;
+    fragment.appendChild(element);
+  });
 
-// similarWizards.forEach((wizard) => {
-//   const wizardElement = similarWizardTemplate.cloneNode(true);
-//   wizardElement.querySelector('.setup-similar-label').textContent = wizard.name;
-//   wizardElement.querySelector('.wizard-coat').style.fill = wizard.coatColor;
-//   wizardElement.querySelector('.wizard-eyes').style.fill = wizard.eyesColor;
-//   similarListElement.appendChild(wizardElement);
-// });
-// const similarListElement = imgBigPicture.querySelector('.paintpic-similar-list');
-// const similarimgBigPicture = document.querySelector('#similar-picture-section')
-//   .content
-//   .querySelector('.paintpic-similar-item');
+  document.querySelector('.social__comments').appendChild(fragment);
+
+  const CloseButton = document.querySelector('.big-picture__cancel');
+  CloseButton.addEventListener('click', () => {
+    imgBigPicture.classList.add('hidden');
+  });
+}
+
+export { openBigPic };
