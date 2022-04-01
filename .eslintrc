@@ -13,5 +13,3 @@ globals:
   L: readonly
   noUiSlider: readonly
   Pristine: readonly
-extends:
-  "htmlacademy/vanilla"
