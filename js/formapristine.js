@@ -11,9 +11,21 @@ form.addEventListener('submit', (e) => {
 });
 
 const hashtagsOne = document.querySelector('.text__hashtags');
+const textErrorHashtag = document.querySelector('.text__error-hashtag');
+
 function validatehashtagsOn(value) {
-  console.log('hi');
-  return false;
+  const hashTags = value.split(' ');
+  for (let i = 0; i < hashTags.length; i++) {
+    if (hashTags[i].startsWith('#') === false) {
+      textErrorHashtag.textContent = 'тестовая ошибка';
+      return false;
+
+    }
+
+  }
+  return true;
+
+  // const uniqueHashtags = new Set(hashTags);
 }
 pristine.addValidator(hashtagsOne, validatehashtagsOn, 'хештег должен начинаться с #,должен быть уникальным, хештег должен быть разделен пробелом');
 // const elem = document.getElementById('');
