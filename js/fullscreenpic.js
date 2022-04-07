@@ -23,7 +23,8 @@ function openBigPic(Newphoto) {
     CommentsText.textContent = item.message;
     fragment.appendChild(element);
   });
-
+  const socialCommentCount = document.querySelector('.social__comment-count');
+  socialCommentCount.textContent = `5 из${Newphoto.comments.length}`;
   document.querySelector('.social__comments').appendChild(fragment);
 
   const CloseButton = document.querySelector('.big-picture__cancel');
