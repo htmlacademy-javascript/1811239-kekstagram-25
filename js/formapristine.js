@@ -7,7 +7,7 @@ const pristine = new Pristine(form, {
 
 form.addEventListener('submit', (e) => {
   e.preventDefault();
-  const valid = pristine.validate();
+  pristine.validate();
 });
 
 const hashtagsOne = document.querySelector('.text__hashtags');
@@ -17,23 +17,18 @@ function validatehashtagsOn(value) {
   const hashTags = value.split(' ');
   for (let i = 0; i < hashTags.length; i++) {
     if (hashTags[i].startsWith('#') === false) {
-      textErrorHashtag.textContent = 'тестовая ошибка';
+      textErrorHashtag.textContent = 'хештег должен начинаться с #';
       return false;
 
     }
 
   }
+  const uniqueHashtags = new Set(hashTags);
+  if (hashTags.length !== uniqueHashtags.size) {
+    textErrorHashtag.textContent = 'хештеги должны быть уникальными';
+    return false;
+  }
   return true;
 
-  // const uniqueHashtags = new Set(hashTags);
 }
 pristine.addValidator(hashtagsOne, validatehashtagsOn, 'хештег должен начинаться с #,должен быть уникальным, хештег должен быть разделен пробелом');
-// const elem = document.getElementById('');
-
-// // A validator to check if the first letter is capitalized
-// pristine.addValidator(elem, (value) => {
-//   if (value.length && value[0] === value[0].toUpperCase()) {
-//     return true;
-//   }
-//   return false;
-// }, 'The first character must be capitalized', 2, false);
