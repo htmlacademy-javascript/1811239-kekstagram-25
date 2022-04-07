@@ -32,3 +32,4 @@ function validatehashtagsOn(value) {
 
 }
 pristine.addValidator(hashtagsOne, validatehashtagsOn, 'хештег должен начинаться с #,должен быть уникальным, хештег должен быть разделен пробелом');
+// one
