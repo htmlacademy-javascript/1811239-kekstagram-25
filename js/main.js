@@ -32,6 +32,7 @@ selectElement.addEventListener('change', (event) => {
     fr.onload = function () {
       OwnPic.children[0].src = fr.result;
       // EffectsPreviewPic.children[0].src = fr.result;
+      // новый ком
       // маленькая картинка,фильтр
     };
     fr.readAsDataURL(files[0]);
