@@ -1,5 +1,6 @@
 const sliderElement = document.querySelector('.effect-level__slider');
 const valueElement = document.querySelector('.effect-level__value');
+let currentEffect='';
 const allEffects = document.querySelectorAll('.effects__radio');
 function changePictureSize(item) {
   //const pictureSize = 100;
@@ -51,6 +52,10 @@ noUiSlider.create(sliderElement, {
 sliderElement.noUiSlider.on('update', () => {
   const newValue = sliderElement.noUiSlider.get();
   valueElement.value = newValue;
+  if( currentEffect==='chrome'){
+    document.querySelector('.img-upload__preview').children[0].style.filter=`grayscale(${newValue})`;
+
+  }
 });
 
 allEffects.forEach((item) => {
@@ -89,6 +94,7 @@ efectButton.forEach((item) => {
       case 'Превью эффекта Хром':
         document.querySelector('.img-upload__preview').children[0].classList = [];
         document.querySelector('.img-upload__preview').children[0].classList.add('effects__preview--chrome');
+        currentEffect='chrome';
         // document.querySelector('.img-upload__preview').children[0].style.filter = 'effects__preview--chrome';
         break;
       case 'Превью эффекта Сепия':
