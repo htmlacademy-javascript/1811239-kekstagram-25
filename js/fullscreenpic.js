@@ -1,3 +1,5 @@
+import './chengepictureslider.js';
+
 function openBigPic(Newphoto) {
   const imgBigPicture = document.querySelector('.big-picture');
   imgBigPicture.classList.remove('hidden');

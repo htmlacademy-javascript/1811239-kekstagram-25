@@ -61,4 +61,3 @@ fieldset.onsubmit = function (evt) {
 };
 
 export { getRandomNumber };
-
