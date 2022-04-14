@@ -1,6 +1,7 @@
 const sliderElement = document.querySelector('.effect-level__slider');
 const valueElement = document.querySelector('.effect-level__value');
 let currentEffect = '';
+const newPicUplouded = document.querySelector('.img-upload__preview img');
 // const allEffects = document.querySelectorAll('.effects__radio');
 function changePictureSize(item) {
   const sizeValue = document.querySelector('.scale__control--value');
@@ -8,14 +9,14 @@ function changePictureSize(item) {
     const scaleValue = Number(sizeValue.value) - 25;
     if (scaleValue >= 25) {
       sizeValue.value = scaleValue;
-      document.querySelector('.img-upload__preview img').style.transform = `scale(${scaleValue / 100})`;
+      newPicUplouded.style.transform = `scale(${scaleValue / 100})`;
 
     }
   } else {
     const scaleValue = Number(sizeValue.value) + 25;
     if (scaleValue <= 100) {
       sizeValue.value = scaleValue;
-      document.querySelector('.img-upload__preview img').style.transform = `scale(${scaleValue / 100})`;
+      newPicUplouded.style.transform = `scale(${scaleValue / 100})`;
     }
   }
 }
@@ -51,23 +52,33 @@ noUiSlider.create(sliderElement, {
 sliderElement.noUiSlider.on('update', () => {
   const newValue = sliderElement.noUiSlider.get();
   valueElement.value = newValue;
+  // const effects = {
+  //   original: '',
+  //   chrome: 'grayscale',
+  //   sepia: 'sepia',
+  //   invert: 'invert',
+  //   blur: 'blur',
+  //   brightness: 'brightness',
+
+  // };
+  // newPicUplouded.style.filter = `${effects[currentEffect]}`;
   if (currentEffect === 'original') {
-    document.querySelector('.img-upload__preview').children[0].style.filter = `(${newValue})`;
+    newPicUplouded.style.filter = `(${newValue})`;
   }
   if (currentEffect === 'chrome') {
-    document.querySelector('.img-upload__preview').children[0].style.filter = `grayscale(${newValue})`;
+    newPicUplouded.style.filter = `grayscale(${newValue})`;
   }
   if (currentEffect === 'sepia') {
-    document.querySelector('.img-upload__preview').children[0].style.filter = `sepia(${newValue})`;
+    newPicUplouded.style.filter = `sepia(${newValue})`;
   }
   if (currentEffect === 'invert') {
-    document.querySelector('.img-upload__preview').children[0].style.filter = `invert(${newValue}%)`;
+    newPicUplouded.style.filter = `invert(${newValue}%)`;
   }
   if (currentEffect === 'blur') {
-    document.querySelector('.img-upload__preview').children[0].style.filter = `blur(${newValue}px)`;
+    newPicUplouded.style.filter = `blur(${newValue}px)`;
   }
   if (currentEffect === 'brightness') {
-    document.querySelector('.img-upload__preview').children[0].style.filter = `brightness(${newValue})`;
+    newPicUplouded.style.filter = `brightness(${newValue})`;
   }
 
 });
@@ -99,38 +110,38 @@ efectButton.forEach((item) => {
     //console.log(event);
     switch (event.target.textContent) {
       case 'Превью фото без эффекта':
-        document.querySelector('.img-upload__preview').children[0].classList = [];
-        document.querySelector('.img-upload__preview').children[0].classList.add('effects__preview--none');
+        newPicUplouded.classList = [];
+        newPicUplouded.classList.add('effects__preview--none');
         currentEffect = 'none';
         break;
       case 'Превью эффекта Хром':
-        document.querySelector('.img-upload__preview').children[0].classList = [];
-        document.querySelector('.img-upload__preview').children[0].classList.add('effects__preview--chrome');
+        newPicUplouded.classList = [];
+        newPicUplouded.classList.add('effects__preview--chrome');
         setSliderOptions(0, 1, 0.1);
         currentEffect = 'chrome';
-        // document.querySelector('.img-upload__preview').children[0].style.filter = 'effects__preview--chrome';
+        // newPicUplouded.style.filter = 'effects__preview--chrome';
         break;
       case 'Превью эффекта Сепия':
-        document.querySelector('.img-upload__preview').children[0].classList = [];
-        document.querySelector('.img-upload__preview').children[0].classList.add('effects__preview--sepia');
+        newPicUplouded.classList = [];
+        newPicUplouded.classList.add('effects__preview--sepia');
         setSliderOptions(0, 1, 0.1);
         currentEffect = 'sepia';
         break;
       case 'Превью эффекта Марвин':
-        document.querySelector('.img-upload__preview').children[0].classList = [];
-        document.querySelector('.img-upload__preview').children[0].classList.add('effects__preview--marvin');
+        newPicUplouded.classList = [];
+        newPicUplouded.classList.add('effects__preview--marvin');
         setSliderOptions(0, 100, 1);
         currentEffect = 'invert';
         break;
       case 'Превью эффекта Фобос':
-        document.querySelector('.img-upload__preview').children[0].classList = [];
-        document.querySelector('.img-upload__preview').children[0].classList.add('effects__preview--phobos');
+        newPicUplouded.classList = [];
+        newPicUplouded.classList.add('effects__preview--phobos');
         setSliderOptions(0, 3, 0.1);
         currentEffect = 'blur';
         break;
       case 'Превью эффекта Зной':
-        document.querySelector('.img-upload__preview').children[0].classList = [];
-        document.querySelector('.img-upload__preview').children[0].classList.add('effects__preview--heat');
+        newPicUplouded.classList = [];
+        newPicUplouded.classList.add('effects__preview--heat');
         setSliderOptions(1, 3, 0.1);
         currentEffect = 'brightness';
         break;
