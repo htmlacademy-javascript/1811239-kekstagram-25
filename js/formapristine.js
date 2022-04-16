@@ -1,3 +1,4 @@
+import { sentData } from './api.js';
 const form = document.getElementById('upload-select-image');
 const pristine = new Pristine(form, {
   classTo: 'text__el--description',
@@ -7,10 +8,15 @@ const pristine = new Pristine(form, {
 
 form.addEventListener('submit', (e) => {
   e.preventDefault();
-  pristine.validate();
+  // console.log('привет');
+  if (pristine.validate()) {
+    // console.log('форма валидна');
+    sentData(new FormData(e.target));
+  }
 });
 
 const hashtagsOne = document.querySelector('.text__hashtags');
+const descriptionOne = document.querySelector('.text__description');
 const textErrorHashtag = document.querySelector('.text__error-hashtag');
 
 function validatehashtagsOn(value) {
@@ -31,5 +37,16 @@ function validatehashtagsOn(value) {
   return true;
 
 }
+
+
+function validateDescription(value) {
+  if (value.length > 140) {
+    textErrorHashtag.textContent = 'описание должно быть не больше 140 символов';
+    return false;
+  }
+  return true;
+
+}
 pristine.addValidator(hashtagsOne, validatehashtagsOn, 'хештег должен начинаться с #,должен быть уникальным, хештег должен быть разделен пробелом');
-// one
+pristine.addValidator(descriptionOne, validateDescription, 'ограничение длинны описания');
+

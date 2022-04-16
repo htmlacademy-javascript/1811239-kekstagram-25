@@ -43,7 +43,10 @@ selectElement.addEventListener('change', (event) => {
   });
   imgUploadOverlay.classList.remove('hidden');
   // OwnPic.children[0].src = event.target.files[0];
-
+  // закрытие окна на кнопку esc
+  // document.addEventListener('big-picture__preview', (e) => {
+  //   if(e.keyCode === 27) {document. imgUploadOverlay('upload-file').hidden= 1;}
+  // });
 });
 
 const fieldset = document.querySelector('.img-upload__text');
