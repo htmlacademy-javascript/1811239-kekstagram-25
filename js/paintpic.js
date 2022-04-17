@@ -88,6 +88,20 @@ function sortByDefault() {
   document.querySelector('.pictures').appendChild(fragment);
 
 }
-shafflePhotosButton.addEventListener('click', shafflePhotos);
-sortPhotosByCommentsButton.addEventListener('click', sortPhotosByComments);
-sortByDefaultButton.addEventListener('click', sortByDefault);
+
+const debounce = (callback, timeoutDelay) => {
+  let timeoutId;
+  return (...rest) => {
+    clearTimeout(timeoutId);
+    timeoutId = setTimeout(() => callback.apply(this, rest), timeoutDelay);
+  };
+};
+
+const shafflePhotosDebounce = debounce(() => shafflePhotos(),500);
+const sortPhotosByCommentsDebounce = debounce(() => sortPhotosByComments(),500);
+const sortByDefaultDebounce = debounce(() => sortByDefault(),500);
+shafflePhotosButton.addEventListener('click', shafflePhotosDebounce);
+sortPhotosByCommentsButton.addEventListener('click', sortPhotosByCommentsDebounce);
+sortByDefaultButton.addEventListener('click', sortByDefaultDebounce);
+
+export { debounce };
