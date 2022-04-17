@@ -4,11 +4,11 @@ function showSuccessModel() {
   document.body.appendChild(resultSuccess);
 }
 
-const CloseModelForm = document.querySelector('#success');
-const CloseButtonModelForm = document.querySelector('.success__button');
-CloseButtonModelForm.addEventListener('click', () => {
-  CloseModelForm.classList.add('hidden');
-  // uploadComments.classList.remove('hidden');
-});
+// const CloseModelForm = document.querySelector('.success__inner');
+// const CloseButtonModelForm = document.querySelector('.success__button');
+// CloseButtonModelForm.addEventListener('click', () => {
+//   CloseButtonModelForm.classList.add('hidden');
+//   CloseModelForm .classList.remove('hidden');
+// });
 
 export { showSuccessModel };
