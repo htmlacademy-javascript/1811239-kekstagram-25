@@ -24,7 +24,6 @@ const selectElement = document.querySelector('.img-upload__input');
 selectElement.addEventListener('change', (event) => {
   const imgUploadOverlay = document.querySelector('.img-upload__overlay');
   const OwnPic = document.querySelector('.img-upload__preview');
-  // const EffectsPreviewPic = document.querySelector('#effect-none');
   const tgt = event.target || window.event.srcElement,
     files = tgt.files;
   if (FileReader && files && files.length) {
@@ -44,6 +43,11 @@ selectElement.addEventListener('change', (event) => {
   imgUploadOverlay.classList.remove('hidden');
   // OwnPic.children[0].src = event.target.files[0];
   // закрытие окна на кнопку esc
+  // const SuccessButton = document.querySelector('.success__button');
+  // SuccessButton.addEventListener('click', () => {
+  //   imgUploadOverlay.classList.add('hidden');
+  //   document.querySelector('body').remove('modal-open');
+  // });
   // document.addEventListener('big-picture__preview', (e) => {
   //   if(e.keyCode === 27) {document. imgUploadOverlay('upload-file').hidden= 1;}
   // });

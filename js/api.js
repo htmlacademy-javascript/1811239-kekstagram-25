@@ -1,7 +1,8 @@
-import { showSuccessModel } from './showsuccessmodel.js';
+import { showSuccessModel, showAlert, showErrorModal } from './modal.js';
 
 const GET_DATA = 'https://25.javascript.pages.academy/kekstagram/data';
-const SENT_DATA = 'https://25.javascript.pages.academy/kekstagram';
+const SENT_DATA = 'https://25.javascript.pages.academy/kekstagramasdf';
+
 function getPhotos() {
   return fetch(GET_DATA)
     .then((response) => {
@@ -9,12 +10,12 @@ function getPhotos() {
         return response.json();
       }
       else {
-        return 'ошибка получения фото';
+        showAlert('Ошибка, попробуйте позже', 2000);
       }
     })
     .then((data) => data)
     .catch(() => {
-      // обработка ошибки
+      showAlert('Ошибка, попробуйте позже', 2000);
     });
 }
 
@@ -28,12 +29,11 @@ function sentData(data) {
         showSuccessModel();
       }
       else {
-        // обработка ошибки
+        showErrorModal();
       }
     })
     .catch(() => {
-      // обработка ошибки
-      // console.log(error);
+      showErrorModal();
     });
 }
 

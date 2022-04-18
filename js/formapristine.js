@@ -8,9 +8,7 @@ const pristine = new Pristine(form, {
 
 form.addEventListener('submit', (e) => {
   e.preventDefault();
-  // console.log('привет');
   if (pristine.validate()) {
-    // console.log('форма валидна');
     sentData(new FormData(e.target));
   }
 });
@@ -20,6 +18,10 @@ const descriptionOne = document.querySelector('.text__description');
 const textErrorHashtag = document.querySelector('.text__error-hashtag');
 
 function validatehashtagsOn(value) {
+  if (value === '') {
+    return true;
+  }
+
   const hashTags = value.split(' ');
   for (let i = 0; i < hashTags.length; i++) {
     if (hashTags[i].startsWith('#') === false) {
@@ -44,9 +46,11 @@ function validateDescription(value) {
     textErrorHashtag.textContent = 'описание должно быть не больше 140 символов';
     return false;
   }
+
+  textErrorHashtag.textContent = '';
   return true;
 
 }
 pristine.addValidator(hashtagsOne, validatehashtagsOn, 'хештег должен начинаться с #,должен быть уникальным, хештег должен быть разделен пробелом');
 pristine.addValidator(descriptionOne, validateDescription, 'ограничение длинны описания');
-// 1
+
