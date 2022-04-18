@@ -53,4 +53,3 @@ function validateDescription(value) {
 }
 pristine.addValidator(hashtagsOne, validatehashtagsOn, 'хештег должен начинаться с #,должен быть уникальным, хештег должен быть разделен пробелом');
 pristine.addValidator(descriptionOne, validateDescription, 'ограничение длинны описания');
-
