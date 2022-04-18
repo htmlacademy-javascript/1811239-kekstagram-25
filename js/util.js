@@ -18,4 +18,6 @@ for (let i = 0; i < 25; i++) {
   result.push(generateRandomComment());
 }
 
-export {generateRandomComment};
+const isEscapeKey = (evt) => evt.key === 'Escape';
+
+export {generateRandomComment,isEscapeKey};
