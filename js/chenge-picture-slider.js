@@ -2,7 +2,7 @@ const sliderElement = document.querySelector('.effect-level__slider');
 const valueElement = document.querySelector('.effect-level__value');
 let currentEffect = '';
 const newPicUplouded = document.querySelector('.img-upload__preview img');
-// const allEffects = document.querySelectorAll('.effects__radio');
+
 function changePictureSize(item) {
   const sizeValue = document.querySelector('.scale__control--value');
   if (item.target.textContent === 'Уменьшить') {
@@ -52,16 +52,6 @@ noUiSlider.create(sliderElement, {
 sliderElement.noUiSlider.on('update', () => {
   const newValue = sliderElement.noUiSlider.get();
   valueElement.value = newValue;
-  // const effects = {
-  //   original: '',
-  //   chrome: 'grayscale',
-  //   sepia: 'sepia',
-  //   invert: 'invert',
-  //   blur: 'blur',
-  //   brightness: 'brightness',
-
-  // };
-  // newPicUplouded.style.filter = `${effects[currentEffect]}`;
   if (currentEffect === 'original') {
     newPicUplouded.style.filter = `(${newValue})`;
   }
@@ -107,7 +97,6 @@ const setSliderOptions = function (from, to, step) {
 const efectButton = document.querySelectorAll('.effects__item');
 efectButton.forEach((item) => {
   item.addEventListener('click', (event) => {
-    //console.log(event);
     switch (event.target.textContent) {
       case 'Превью фото без эффекта':
         newPicUplouded.classList = [];
@@ -119,7 +108,6 @@ efectButton.forEach((item) => {
         newPicUplouded.classList.add('effects__preview--chrome');
         setSliderOptions(0, 1, 0.1);
         currentEffect = 'chrome';
-        // newPicUplouded.style.filter = 'effects__preview--chrome';
         break;
       case 'Превью эффекта Сепия':
         newPicUplouded.classList = [];

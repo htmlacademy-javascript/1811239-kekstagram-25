@@ -1,4 +1,5 @@
 import { sentData } from './api.js';
+
 const form = document.getElementById('upload-select-image');
 const pristine = new Pristine(form, {
   classTo: 'text__el--description',

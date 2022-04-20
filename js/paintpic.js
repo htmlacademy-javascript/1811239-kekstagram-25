@@ -1,6 +1,6 @@
 
 import { getPhotos } from './api.js';
-import { openBigPic } from './fullscreenpic.js';
+import { openBigPicture } from './full-screen-picture.js';
 
 
 const sortByDefaultButton = document.querySelector('#filter-default');
@@ -18,15 +18,15 @@ const renderPictures = (photos, buttonElement) => {
   photos.forEach((newPhoto) => {
 
     const element = picture.cloneNode(true);
-    const Foundpic = element.querySelector('.picture__img');
-    const Foundcomments = element.querySelector('.picture__comments');
-    const Foundlike = element.querySelector('.picture__likes');
+    const foundPictures = element.querySelector('.picture__img');
+    const foundComments = element.querySelector('.picture__comments');
+    const foundLikes = element.querySelector('.picture__likes');
 
-    Foundpic.src = newPhoto.url;
-    Foundcomments.textContent = newPhoto.comments.length;
-    Foundlike.textContent = newPhoto.likes;
+    foundPictures.src = newPhoto.url;
+    foundComments.textContent = newPhoto.comments.length;
+    foundLikes.textContent = newPhoto.likes;
     element.addEventListener('click', () => {
-      openBigPic(newPhoto);
+      openBigPicture(newPhoto);
     });
     fragment.appendChild(element);
   });
@@ -61,9 +61,9 @@ const debounce = (callback, timeoutDelay) => {
   };
 };
 
-const shafflePhotosDebounce = debounce(() => shafflePhotos(),500);
-const sortPhotosByCommentsDebounce = debounce(() => sortPhotosByComments(),500);
-const sortByDefaultDebounce = debounce(() => sortByDefault(),500);
+const shafflePhotosDebounce = debounce(() => shafflePhotos(), 500);
+const sortPhotosByCommentsDebounce = debounce(() => sortPhotosByComments(), 500);
+const sortByDefaultDebounce = debounce(() => sortByDefault(), 500);
 shafflePhotosButton.addEventListener('click', shafflePhotosDebounce);
 sortPhotosByCommentsButton.addEventListener('click', sortPhotosByCommentsDebounce);
 sortByDefaultButton.addEventListener('click', sortByDefaultDebounce);
