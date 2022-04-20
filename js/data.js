@@ -1,5 +1,4 @@
-import { getRandomNumber } from './main.js';
-import{generateRandomComment} from './util.js';
+import{generateRandomComment,getRandomNumber} from './util.js';
 
 const id = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25'];
 const url = ['photos/1.jpg', 'photos/2.jpg', 'photos/3.jpg', 'photos/4.jpg', 'photos/5.jpg', 'photos/6.jpg'];

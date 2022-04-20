@@ -20,6 +20,7 @@ function getPhotos() {
 }
 
 function sentData(data) {
+  debugger;
   fetch(SENT_DATA, {
     method: 'POST',
     body: data
