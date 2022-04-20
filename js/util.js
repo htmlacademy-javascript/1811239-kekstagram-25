@@ -5,7 +5,7 @@ const message = ['Всё отлично!', 'В целом всё неплохо.
 const appellation = ['Анна', 'Андрей', 'Денис', 'Игорь', 'Андрей', 'Марина', 'Сергей', 'Наталия', 'Ева', 'Светлана', 'Олеся', 'Жанна', 'Соня', 'София', 'Александра', 'Савва', 'Вася', 'Дима', 'Ульяна', 'Нина', 'Галина', 'Алла', 'Яна', 'Владимир', 'Лариса', 'Тоня',];
 const result = [];
 
-const getRandomArrayElement = (elements) => elements[getRandomNumber(0, elements.length - 1)];
+// const getRandomArrayElement = (elements) => elements[getRandomNumber(0, elements.length - 1)];
 const generateRandomComment = () => ({
   id: getRandomArrayElement(id),
   avatar: getRandomArrayElement(avatar),
@@ -20,4 +20,4 @@ for (let i = 0; i < 25; i++) {
 
 const isEscapeKey = (evt) => evt.key === 'Escape';
 
-export {generateRandomComment,isEscapeKey};
+export {isEscapeKey};

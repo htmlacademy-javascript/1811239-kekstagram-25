@@ -17,6 +17,7 @@ const closeSuccessModal = () => {
 };
 
 const showSuccessModel = () => {
+  document.body.classList.add('modal-open');
   document.querySelector('.img-upload__overlay').classList.add('hidden');
   const success = document.querySelector('#success').content.querySelector('.success');
   const resultSuccess = success.cloneNode(true);

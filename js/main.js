@@ -1,6 +1,6 @@
 import './util.js';
 import './data.js';
-import './paintpic.js';
+import './paint-picture.js';
 import './full-screen-picture.js';
 import './forma-pristine.js';
 
