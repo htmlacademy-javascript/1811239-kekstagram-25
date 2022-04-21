@@ -1,63 +1,62 @@
 import { isEscapeKey } from './util.js';
 
-const clearImgUpload = () => {
+function clearImgUpload() {
   const imgUpload = document.querySelector('.img-upload__overlay');
   imgUpload.classList.add('hidden');
   document.querySelector('.text__hashtags').value = '';
   document.querySelector('.text__description').value = '';
-};
+}
 
-const closeSuccessModal = () => {
-  const successModal = document.querySelector('.success');
+function closeSuccessModal() {
+  document.querySelector('.success').remove();
   const bigPicture = document.querySelector('.big-picture');
   clearImgUpload();
   bigPicture.classList.add('hidden');
-  successModal.classList.add('hidden');
   document.body.classList.remove('modal-open');
-};
+  document.removeEventListener('keydown', closeSuccessModal);
+}
 
-const showSuccessModel = () => {
+function showSuccessModel() {
   document.body.classList.add('modal-open');
   document.querySelector('.img-upload__overlay').classList.add('hidden');
   const success = document.querySelector('#success').content.querySelector('.success');
   const resultSuccess = success.cloneNode(true);
   document.body.appendChild(resultSuccess);
-  const SuccessButton = document.querySelector('.success__button');
 
-  SuccessButton.addEventListener('click', () => {
+  resultSuccess.addEventListener('click', () => {
     closeSuccessModal();
   });
 
-  document.addEventListener('keydown', (e) => {
-    if (isEscapeKey(e)) {
+  document.addEventListener('keydown', (event) => {
+    if (isEscapeKey(event)) {
       closeSuccessModal();
     }
   });
-};
+}
 
-const closeErrorModal = () => {
+function closeErrorModal() {
   clearImgUpload();
   document.querySelector('.error').remove();
   document.body.classList.remove('modal-open');
-};
+}
 
-const showErrorModal = () => {
+function showErrorModal() {
   clearImgUpload();
   const error = document.querySelector('#error').content.querySelector('.error');
   const errorCopy = error.cloneNode(true);
   document.body.classList.add('modal-open');
   document.body.appendChild(errorCopy);
 
-  document.querySelector('.error__button').addEventListener('click', () => {
+  document.querySelector('.error').addEventListener('click', () => {
     closeErrorModal();
   });
 
-  document.addEventListener('keydown', (e) => {
-    if (isEscapeKey(e)) {
+  document.addEventListener('keydown', (event) => {
+    if (isEscapeKey(event)) {
       closeErrorModal();
     }
   });
-};
+}
 
 // Функция вывода сообщения с ошибкой на экран
 const showAlert = (message, time) => {

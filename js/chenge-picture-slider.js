@@ -2,21 +2,24 @@ const sliderElement = document.querySelector('.effect-level__slider');
 const valueElement = document.querySelector('.effect-level__value');
 let currentEffect = '';
 const newPicUplouded = document.querySelector('.img-upload__preview img');
+const STEP = 25;
+const MIN_SCALE = 25;
+const MAX_SCALE = 100;
 
 function changePictureSize(item) {
   const sizeValue = document.querySelector('.scale__control--value');
   if (item.target.textContent === 'Уменьшить') {
-    const scaleValue = Number(sizeValue.value) - 25;
-    if (scaleValue >= 25) {
+    const scaleValue = Number(sizeValue.value) - STEP;
+    if (scaleValue >= MIN_SCALE) {
       sizeValue.value = scaleValue;
-      newPicUplouded.style.transform = `scale(${scaleValue / 100})`;
+      newPicUplouded.style.transform = `scale(${scaleValue / MAX_SCALE})`;
 
     }
   } else {
-    const scaleValue = Number(sizeValue.value) + 25;
-    if (scaleValue <= 100) {
+    const scaleValue = Number(sizeValue.value) + STEP;
+    if (scaleValue <= MAX_SCALE) {
       sizeValue.value = scaleValue;
-      newPicUplouded.style.transform = `scale(${scaleValue / 100})`;
+      newPicUplouded.style.transform = `scale(${scaleValue / MAX_SCALE})`;
     }
   }
 }
@@ -79,7 +82,7 @@ const setSliderOptions = function (from, to, step) {
       min: from,
       max: to,
     },
-    start: 0,
+    start: to,
     step: step,
     format: {
       to: function (value) {
@@ -99,35 +102,41 @@ efectButton.forEach((item) => {
   item.addEventListener('click', (event) => {
     switch (event.target.textContent) {
       case 'Превью фото без эффекта':
+        document.querySelector('.img-upload__effect-level').classList.add('hidden');
         newPicUplouded.classList = [];
         newPicUplouded.classList.add('effects__preview--none');
         currentEffect = 'none';
         break;
       case 'Превью эффекта Хром':
+        document.querySelector('.img-upload__effect-level').classList.remove('hidden');
         newPicUplouded.classList = [];
         newPicUplouded.classList.add('effects__preview--chrome');
         setSliderOptions(0, 1, 0.1);
         currentEffect = 'chrome';
         break;
       case 'Превью эффекта Сепия':
+        document.querySelector('.img-upload__effect-level').classList.remove('hidden');
         newPicUplouded.classList = [];
         newPicUplouded.classList.add('effects__preview--sepia');
         setSliderOptions(0, 1, 0.1);
         currentEffect = 'sepia';
         break;
       case 'Превью эффекта Марвин':
+        document.querySelector('.img-upload__effect-level').classList.remove('hidden');
         newPicUplouded.classList = [];
         newPicUplouded.classList.add('effects__preview--marvin');
         setSliderOptions(0, 100, 1);
         currentEffect = 'invert';
         break;
       case 'Превью эффекта Фобос':
+        document.querySelector('.img-upload__effect-level').classList.remove('hidden');
         newPicUplouded.classList = [];
         newPicUplouded.classList.add('effects__preview--phobos');
         setSliderOptions(0, 3, 0.1);
         currentEffect = 'blur';
         break;
       case 'Превью эффекта Зной':
+        document.querySelector('.img-upload__effect-level').classList.remove('hidden');
         newPicUplouded.classList = [];
         newPicUplouded.classList.add('effects__preview--heat');
         setSliderOptions(1, 3, 0.1);

@@ -10,6 +10,9 @@ const templateFragment = document.querySelector('#picture').content;
 const picture = templateFragment.querySelector('.picture');
 let newElementPictures = [];
 
+const sortForm = document.querySelector('.img-filters__form');
+sortForm.classList.add('hidden');
+
 const renderPictures = (photos, buttonElement) => {
   const fragment = document.createDocumentFragment();
   document.querySelector('.img-filters__button--active').classList.remove('img-filters__button--active');
@@ -35,6 +38,7 @@ const renderPictures = (photos, buttonElement) => {
 
 getPhotos()
   .then((data) => {
+    sortForm.classList.remove('hidden');
     newElementPictures = data;
     sortByDefault();
   });
